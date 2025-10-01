@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ulang Tahun Spesial</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Animasi Background -->
+    <div class="animation-container">
+      <!-- Balon -->
+      <div
+        class="balloon"
+        style="left: 5%; animation-delay: 1s; background: #f9a8d4"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 25%; animation-delay: 3s; background: #f472b6"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 45%; animation-delay: 6s; background: #ec4899"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 65%; animation-delay: 9s; background: #db2777"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 85%; animation-delay: 12s; background: #be185d"
+      >
+        <div class="string"></div>
+      </div>
+
+      <!-- Bunga -->
+      <div class="flower" style="left: 20%; animation-delay: 4s">
+        <img src="images/sakura.png" alt="Bunga" />
+      </div>
+      <div class="flower" style="left: 70%; animation-delay: 8s">
+        <img src="images/sakura.png" alt="Bunga" />
+      </div>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="shadow-glass">
+      <h1 class="section-title">Happy 19th Birthday Myluvvv!</h1>
+      <!-- <h2 class="section-subtitle">
+        For The Most Beautiful Girl In The Whole World💖
+      </h2> -->
+      <img src="images/profil.jpg" alt="Foto Nazla" class="profile-img" />
+
+      <!-- Romantic Message (typing effect) -->
+      <div id="romantic-message" class="romantic-text">
+        On this special day of yours, I just want you to know that the world
+        feels so much more beautiful because you are in it. 💖"
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="shadow-glass">
+      <h2 class="section-title">
+        My life feels at peace whenever I see your smile 💖
+      </h2>
+      <div class="gallery-grid">
+        <img src="images/foto1.jpg" alt="Foto 1" class="gallery-img" />
+        <img src="images/foto2.jpg" alt="Foto 2" class="gallery-img" />
+        <img src="images/foto3.jpg" alt="Foto 3" class="gallery-img" />
+        <img src="images/foto4.jpg" alt="Foto 4" class="gallery-img" />
+      </div>
+      <div id="romantic-message" class="romantic-text">
+        “Heyy bub, look at this picture, your smile is the kind of light that
+        calms my heart even on the darkest days. There’s a warmth in it that
+        words could never capture, as if the whole world pauses just to admire
+        its beauty. Your smile is not just a curve on your lips, but a happiness
+        that spreads, and a reason for me to always be grateful to have you in
+        my life💖"
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="shadow-glass">
+      <h2 class="section-title">For You, My Love💖</h2>
+      <div id="closing-message" class="closing"></div>
+    </section>
+
+    <!-- Music Player
+    <div class="music-player" id="musicBtn">
+      <svg id="musicIcon" viewBox="0 0 24 24" class="music-icon">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+      <span id="musicStatus">Putar Musik</span>
+    </div> -->
+
+    <audio id="birthdayAudio" autoplay loop preload="auto">
+      <source src="sound/romantic-412732.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="script.js"></script>
+    <script>
+      // Auto play musik hanya jika datang dari index
+      const audio = document.getElementById("birthdayAudio");
+      if (localStorage.getItem("playMusic") === "true") {
+        audio.play().catch(() => console.log("Autoplay diblokir browser"));
+        localStorage.removeItem("playMusic");
+      }
+    </script>
+  </body>
+</html>

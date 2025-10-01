@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday My Future Girl</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="center-body">
+    <!-- Animasi Background -->
+    <div class="animation-container">
+      <!-- Balon banyak -->
+      <div
+        class="balloon"
+        style="left: 10%; animation-delay: 0s; background: #f9a8d4"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 20%; animation-delay: 2s; background: #f472b6"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 30%; animation-delay: 4s; background: #ec4899"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 40%; animation-delay: 6s; background: #db2777"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 50%; animation-delay: 8s; background: #be185d"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 60%; animation-delay: 10s; background: #d946ef"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 70%; animation-delay: 12s; background: #f43f5e"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 80%; animation-delay: 14s; background: #e879f9"
+      >
+        <div class="string"></div>
+      </div>
+      <div
+        class="balloon"
+        style="left: 90%; animation-delay: 16s; background: #fb7185"
+      >
+        <div class="string"></div>
+      </div>
+
+      <!-- Bunga -->
+      <div class="flower" style="left: 15%; animation-delay: 3s">
+        <img src="images/sakura.png" alt="Bunga" />
+      </div>
+      <div class="flower" style="left: 65%; animation-delay: 7s">
+        <img src="images/sakura.png" alt="Bunga" />
+      </div>
+      <div class="flower" style="left: 85%; animation-delay: 5s">
+        <img src="images/sakura.png" alt="Bunga" />
+      </div>
+    </div>
+
+    <!-- Konten Tengah -->
+    <div class="text-center relative z-10">
+      <h1 class="title-text fade-in">Happy Birthday My Future Girl</h1>
+      <button id="surpriseBtn" class="btn-main fade-in">
+        Click This For Surprise!!
+      </button>
+    </div>
+
+    <!-- Musik -->
+    <audio id="introMusic" loop preload="auto">
+      <source
+        src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7a7a7a7a.mp3?filename=happy-birthday-112.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script>
+      const btn = document.getElementById("surpriseBtn");
+      const audio = document.getElementById("introMusic");
+
+      btn.addEventListener("click", () => {
+        // coba play musik (jika diblokir, tetap redirect)
+        audio.play().catch(() => {
+          console.log("Autoplay diblokir, lanjut redirect");
+        });
+        localStorage.setItem("playMusic", "true");
+        window.location.href = "landing.html"; // redirect langsung
+      });
+    </script>
+  </body>
+</html>
