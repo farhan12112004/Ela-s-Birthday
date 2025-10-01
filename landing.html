@@ -61,22 +61,20 @@
     <!-- Section 1 -->
     <section class="shadow-glass">
       <h1 class="section-title">Happy 19th Birthday Myluvvv!</h1>
-      <!-- <h2 class="section-subtitle">
-        For The Most Beautiful Girl In The Whole World💖
-      </h2> -->
       <img src="images/profil.jpg" alt="Foto Nazla" class="profile-img" />
 
       <!-- Romantic Message (typing effect) -->
-      <div id="romantic-message" class="romantic-text">
-        On this special day of yours, I just want you to know that the world
-        feels so much more beautiful because you are in it. 💖"
+      <div id="romantic-message-1" class="romantic-text">
+        “On this special day of yours, I just want you to know that the world
+        feels so much more beautiful because you are in it. 💖”
       </div>
     </section>
 
     <!-- Section 2 -->
     <section class="shadow-glass">
       <h2 class="section-title">
-        My life feels at peace whenever I see your smile 💖
+        My life feels at peace whenever</h2>
+        <h2 class="section-title">I see your smile 💖</h2>
       </h2>
       <div class="gallery-grid">
         <img src="images/foto1.jpg" alt="Foto 1" class="gallery-img" />
@@ -84,42 +82,43 @@
         <img src="images/foto3.jpg" alt="Foto 3" class="gallery-img" />
         <img src="images/foto4.jpg" alt="Foto 4" class="gallery-img" />
       </div>
-      <div id="romantic-message" class="romantic-text">
+      <div id="romantic-message-2" class="romantic-text">
         “Heyy bub, look at this picture, your smile is the kind of light that
         calms my heart even on the darkest days. There’s a warmth in it that
         words could never capture, as if the whole world pauses just to admire
         its beauty. Your smile is not just a curve on your lips, but a happiness
         that spreads, and a reason for me to always be grateful to have you in
-        my life💖"
+        my life💖”
       </div>
     </section>
 
     <!-- Section 3 -->
     <section class="shadow-glass">
-      <h2 class="section-title">For You, My Love💖</h2>
+      <h2 class="section-title">For You, My Love 💖</h2>
       <div id="closing-message" class="closing"></div>
     </section>
 
-    <!-- Music Player
-    <div class="music-player" id="musicBtn">
-      <svg id="musicIcon" viewBox="0 0 24 24" class="music-icon">
-        <path d="M8 5v14l11-7z" />
-      </svg>
-      <span id="musicStatus">Putar Musik</span>
-    </div> -->
-
-    <audio id="birthdayAudio" autoplay loop preload="auto">
+    <!-- Musik -->
+    <audio id="birthdayAudio" preload="auto" loop playsinline>
       <source src="sound/romantic-412732.mp3" type="audio/mpeg" />
+      <source src="sound/romantic-412732.ogg" type="audio/ogg" />
+      Your browser does not support the audio element.
     </audio>
 
     <script src="script.js"></script>
     <script>
-      // Auto play musik hanya jika datang dari index
+      // Autoplay musik hanya jika datang dari index.html
       const audio = document.getElementById("birthdayAudio");
-      if (localStorage.getItem("playMusic") === "true") {
-        audio.play().catch(() => console.log("Autoplay diblokir browser"));
-        localStorage.removeItem("playMusic");
-      }
+      window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("playMusic") === "true") {
+          audio
+            .play()
+            .catch(() =>
+              console.log("Autoplay diblokir browser, user harus klik play.")
+            );
+          localStorage.removeItem("playMusic");
+        }
+      });
     </script>
   </body>
 </html>

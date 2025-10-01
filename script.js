@@ -1,16 +1,46 @@
-// ==== Kalimat Romantis dengan efek mengetik ====
-const romanticEl = document.getElementById("countdown"); // pakai div lama countdown
-if (romanticEl) {
-  const romanticText =
+// ==== Romantic Text 1 (langsung jalan) ====
+const romanticEl1 = document.getElementById("romantic-message-1");
+if (romanticEl1) {
+  const romanticText1 =
     "On this special day of yours,\n" +
     "I just want you to know that the world feels so much more beautiful\n" +
     "because you are in it. 💖";
 
-  typeText(romanticEl, romanticText, 28); // speed 28ms per karakter
+  typeText(romanticEl1, romanticText1, 40);
 }
 
-// Fungsi typing text multiline
-function typeText(el, text, speed = 35) {
+// ==== Romantic Text 2 (baru jalan ketika section 2 terlihat) ====
+const romanticEl2 = document.getElementById("romantic-message-2");
+if (romanticEl2) {
+  const romanticText2 =
+    "Heyy bub, look at this picture,\n" +
+    "your smile is the kind of light that calms my heart even on the darkest days.\n" +
+    "There’s a warmth in it that words could never capture,\n" +
+    "as if the whole world pauses just to admire its beauty.\n" +
+    "Your smile is not just a curve on your lips, but a happiness that spreads,\n" +
+    "and a reason for me to always be grateful to have you in my life 💖";
+
+  let alreadyTyped = false;
+
+  // Pakai IntersectionObserver supaya ketahuan kalau section masuk viewport
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !alreadyTyped) {
+          typeText(romanticEl2, romanticText2, 40);
+          alreadyTyped = true; // biar tidak diulang
+          observer.unobserve(entry.target); // stop observe
+        }
+      });
+    },
+    { threshold: 0.3 } // minimal 30% terlihat
+  );
+
+  observer.observe(romanticEl2);
+}
+
+// ==== Fungsi typing ====
+function typeText(el, text, speed = 40) {
   el.innerHTML = "";
   const caret = document.createElement("span");
   caret.className = "caret";
@@ -22,7 +52,7 @@ function typeText(el, text, speed = 35) {
       const ch = text[i++];
       if (ch === "\n") {
         caret.insertAdjacentHTML("beforebegin", "<br>");
-        setTimeout(step, speed * 6);
+        setTimeout(step, speed * 8);
       } else {
         caret.insertAdjacentText("beforebegin", ch);
         setTimeout(step, speed);
@@ -33,8 +63,6 @@ function typeText(el, text, speed = 35) {
   }
   step();
 }
-
-// ===== Ucapan penutup berganti =====
 const closingEl = document.getElementById("closing-message");
 if (closingEl) {
   const closingMessages = [
@@ -63,24 +91,4 @@ if (closingEl) {
       closingEl.style.opacity = 1;
     }, 500);
   }, 8000);
-}
-
-// ===== Music Control =====
-const musicBtn = document.getElementById("musicBtn");
-const musicIcon = document.getElementById("musicIcon");
-const musicStatus = document.getElementById("musicStatus");
-const audio = document.getElementById("birthdayAudio");
-
-if (musicBtn) {
-  musicBtn.addEventListener("click", () => {
-    if (audio.paused) {
-      audio.play();
-      musicStatus.textContent = "Jeda Musik";
-      musicIcon.innerHTML = '<path d="M6 19h4.5V5H6v14zm7.5-14v14l7-7-7-7z"/>';
-    } else {
-      audio.pause();
-      musicStatus.textContent = "Putar Musik";
-      musicIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
-    }
-  });
 }

@@ -89,11 +89,11 @@
     <div class="text-center relative z-10">
       <h1 class="title-text fade-in">Happy Birthday My Future Girl</h1>
       <button id="surpriseBtn" class="btn-main fade-in">
-        Click This For Surprise!!
+        Click This For Surprise !!
       </button>
     </div>
 
-    <!-- Musik -->
+    <!-- Musik (opsional di index, tapi tidak diputar di sini) -->
     <audio id="introMusic" loop preload="auto">
       <source
         src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7a7a7a7a.mp3?filename=happy-birthday-112.mp3"
@@ -103,15 +103,12 @@
 
     <script>
       const btn = document.getElementById("surpriseBtn");
-      const audio = document.getElementById("introMusic");
 
       btn.addEventListener("click", () => {
-        // coba play musik (jika diblokir, tetap redirect)
-        audio.play().catch(() => {
-          console.log("Autoplay diblokir, lanjut redirect");
-        });
+        // Simpan flag agar landing.html tahu harus play musik
         localStorage.setItem("playMusic", "true");
-        window.location.href = "landing.html"; // redirect langsung
+        // Redirect ke halaman utama
+        window.location.href = "landing.html";
       });
     </script>
   </body>
