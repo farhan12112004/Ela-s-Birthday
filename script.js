@@ -4,7 +4,7 @@ if (romanticEl1) {
   const romanticText1 =
     "On this special day of yours,\n" +
     "I just want you to know that the world feels so much more beautiful\n" +
-    "because you are in it. 💖";
+    "because you are in it.";
 
   typeText(romanticEl1, romanticText1, 40);
 }
@@ -18,7 +18,7 @@ if (romanticEl2) {
     "There’s a warmth in it that words could never capture,\n" +
     "as if the whole world pauses just to admire its beauty.\n" +
     "Your smile is not just a curve on your lips, but a happiness that spreads,\n" +
-    "and a reason for me to always be grateful to have you in my life 💖";
+    "and a reason for me to always be grateful to have you in my life";
 
   let alreadyTyped = false;
 
